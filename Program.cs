@@ -70,8 +70,17 @@ class ControlEstoque
         Console.WriteLine("\nVoce escolheu adicionar um item!");
         Console.WriteLine("Digite o item que quer adicionar:\n");
         string itemAdd = Console.ReadLine();
-        itens.Add(itemAdd);
-        Console.WriteLine("\nItem {0} adicionado com sucesso.\n", itemAdd);
+        if (string.IsNullOrWhiteSpace(itemAdd))
+        {
+            Console.WriteLine("Digite algum tipo de valor...");
+        }
+        else
+        {
+            
+            itens.Add(itemAdd);
+            Console.WriteLine("\nItem {0} adicionado com sucesso.\n", itemAdd);
+        }
+        
 
 
     }
