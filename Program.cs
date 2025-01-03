@@ -1,45 +1,49 @@
 ﻿using System;
 using System.Collections.Generic;
 
-class ControlEstoque
+class Storage
 {
 
     public static List<string> itens = new List<string>();
 
     public static void Main()
     {
-        ControlEstoque controle = new ControlEstoque();
+        Storage controle = new Storage();
 
-        bool continuar = true;
+        bool looping = true;
 
-        while (continuar == true)
+        while (looping == true)
         {
             try
             {
-                ControlEstoque.ExibirMenu();
-                int opcao = int.Parse(Console.ReadLine());
-                if (opcao == 1)
+                Storage.ShowMenu();
+                int option = int.Parse(Console.ReadLine());
+                if (option == 1)
                 {
-                    ControlEstoque.AdicionarItem();
+                    Console.WriteLine("\nVoce escolheu adicionar um item!");
+                    Console.WriteLine("Digite o item que quer adicionar:\n");
+                    Storage.AddItem();
 
                 }
-                else if (opcao == 2)
+                else if (option == 2)
                 {
-                    ControlEstoque.RemoverItem();
+                    Console.WriteLine("\nVoce escolheu remover um item!");
+                    Console.WriteLine("Digite o item que quer remover:\n");
+                    Storage.RemoveItem();
 
                 }
-                else if (opcao == 3)
+                else if (option == 3)
                 {
 
                     Console.WriteLine("\nVoce escolheu listar todos os itens atuais!\n");
-                    ControlEstoque.MostrarItens();
+                    Storage.ShowItens();
                     Console.WriteLine("\nItens Listados \n");
 
                 }
-                else if (opcao == 4)
+                else if (option == 4)
                 {
                     Console.WriteLine("\nSaindo do programa...");
-                    continuar = false;
+                    looping = false;
 
 
                 }
@@ -55,7 +59,7 @@ class ControlEstoque
 
     }
 
-    public static void ExibirMenu()
+    public static void ShowMenu()
     {
         Console.WriteLine("1 - Adicionar item");
         Console.WriteLine("2 - Remover item");
@@ -65,10 +69,9 @@ class ControlEstoque
 
 
     }
-    public static void AdicionarItem()
+    public static void AddItem()
     {
-        Console.WriteLine("\nVoce escolheu adicionar um item!");
-        Console.WriteLine("Digite o item que quer adicionar:\n");
+        
         string itemAdd = Console.ReadLine();
         if (string.IsNullOrWhiteSpace(itemAdd))
         {
@@ -84,10 +87,9 @@ class ControlEstoque
 
 
     }
-    public static void RemoverItem()
+    public static void RemoveItem()
     {
-        Console.WriteLine("\nVoce escolheu remover um item!");
-        Console.WriteLine("Digite o item que quer remover:\n");
+       
         string itemRemove = Console.ReadLine();
         if (itens.Remove(itemRemove))
         {
@@ -100,7 +102,7 @@ class ControlEstoque
         }
 
     }
-    public static void MostrarItens()
+    public static void ShowItens()
     {
         foreach (var item in itens)
         {
