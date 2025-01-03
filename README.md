@@ -1,57 +1,78 @@
 # Controle de Estoque
 
-Este projeto é uma aplicação simples de controle de estoque desenvolvida em C#. Ele permite adicionar, remover e listar itens armazenados em um inventário. O objetivo principal é servir como uma introdução prática ao uso de coleções e manipulação de dados em C#.
+Este programa implementa um sistema de controle simples para armazenar, listar, adicionar e remover itens usando listas em C#. O programa apresenta um menu interativo no console que permite ao usuário realizar essas operações de forma eficiente.
 
 ## Funcionalidades
 
-- **Adicionar itens ao estoque**
-- **Remover itens do estoque**
-- **Listar todos os itens no estoque**
-- **Sair do programa**
+1. **Adicionar Item**
+   - Permite ao usuário inserir um item na lista.
+   - Valida a entrada para garantir que não seja nula ou vazia.
 
-## Como utilizar
+2. **Remover Item**
+   - Permite ao usuário remover um item existente na lista.
+   - Verifica se o item está presente antes de tentar removê-lo.
 
-1. Compile e execute o programa no Visual Studio ou em outro ambiente compatível com C#.
-2. O menu principal será exibido com as seguintes opções:
-   - `1` - Adicionar item
-   - `2` - Remover item
-   - `3` - Listar itens
-   - `4` - Sair
-3. Escolha uma das opções digitando o número correspondente e pressione Enter.
-4. Siga as instruções exibidas para cada funcionalidade.
+3. **Listar Itens**
+   - Exibe todos os itens atualmente armazenados na lista.
+
+4. **Sair**
+   - Encerra o programa.
 
 ## Estrutura do Código
 
-### Classes
+### Classes e Métodos
 
-- **`ControlEstoque`**: Classe principal que contém a lógica do programa.
-
-### Métodos
-
-- **`ExibirMenu`**: Exibe o menu principal com as opções disponíveis.
-- **`AdicionarItem`**: Permite adicionar um novo item ao estoque. Verifica se a entrada não está vazia.
-- **`RemoverItem`**: Remove um item do estoque com base no nome. Exibe uma mensagem caso o item não exista.
-- **`MostrarItens`**: Lista todos os itens atualmente armazenados no estoque.
-
-## Observações
-
-- O programa utiliza uma lista genérica (`List<string>`) para armazenar os itens do estoque.
-- O tratamento de erros simples é implementado para lidar com entradas inválidas no menu.
-- O método `Remove` verifica a existência do item antes de tentar removê-lo.
+- **Classe `Storage`**:
+  - Contém a lógica principal do programa e a lista de itens.
+  
+- **Métodos:**
+  - `Main`: Ponto de entrada do programa. Gerencia o loop principal e as interações do menu.
+  - `ShowMenu`: Exibe as opções do menu ao usuário.
+  - `AddItem`: Adiciona um item à lista de itens, verificando se a entrada é válida.
+  - `RemoveItem`: Remove um item da lista, garantindo que ele exista antes de removê-lo.
+  - `ShowItens`: Lista todos os itens armazenados na lista.
 
 ## Requisitos
 
-- **.NET Framework** ou **.NET Core**
-- Ambiente de desenvolvimento compatível com C#, como Visual Studio ou Visual Studio Code.
+- .NET Core ou .NET Framework
+- Console habilitado para executar programas C#
 
-## Melhorias Futuras
+## Como Usar
 
-- Implementar persistência de dados usando um arquivo ou banco de dados.
-- Adicionar validações mais robustas para entradas do usuário.
-- Implementar uma interface gráfica para melhorar a usabilidade.
-- Permitir busca de itens específicos no estoque.
+1. Compile e execute o programa em um ambiente compatível com C#.
+2. Escolha as opções do menu digitando o número correspondente:
+   - `1`: Adicionar um item.
+   - `2`: Remover um item.
+   - `3`: Listar todos os itens.
+   - `4`: Sair do programa.
+3. Siga as instruções fornecidas no console para interagir com o programa.
 
----
+## Tratamento de Erros
 
-**Autor:** [Cassio Marques Reigotto]  
-**Data:** Janeiro de 2025  
+- O programa lida com entradas inválidas, como caracteres não numéricos ao escolher uma opção do menu.
+- Evita a adição de entradas vazias ou nulas na lista.
+- Verifica a existência de um item antes de tentar removê-lo.
+
+## Exemplo de Execução
+
+```
+1 - Adicionar item
+2 - Remover item
+3 - Listar itens
+4 - Sair
+Escolha uma opção:
+1
+Digite o item que quer adicionar:
+Caneta
+
+Item Caneta adicionado com sucesso.
+
+1 - Adicionar item
+2 - Remover item
+3 - Listar itens
+4 - Sair
+Escolha uma opção:
+3
+Caneta
+
+Itens Listados
